@@ -26,9 +26,16 @@ namespace Game.Scripts.LiveObjects
         [SerializeField]
         private InteractableZone _interactableZone;
         
-
         public static event Action OnEnterFlightMode;
         public static event Action onExitFlightmode;
+
+        //
+        //
+        private float _droneMovementValue;
+        private float _droneRotationValue;
+        private float _droneLiftValue;
+        //
+        //
 
         private void OnEnable()
         {
@@ -78,11 +85,27 @@ namespace Game.Scripts.LiveObjects
                 CalculateMovementFixedUpdate();
         }
 
+        //
+        public void MoveDrone(float droneMover)
+        {
+            _droneMovementValue = droneMover;
+        }
+
+        public void RotateDrone(float droneRotation)
+        {
+            _droneRotationValue = droneRotation;
+        }
+
+        public void LiftDrone(float droneLiftValue)
+        {
+            _droneLiftValue= droneLiftValue;
+        }
+        //
+
+        //
         private void CalculateMovementUpdate()
         {
-            ///
-            ///
-            ///
+            /*
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 var tempRot = transform.localRotation.eulerAngles;
@@ -95,13 +118,25 @@ namespace Game.Scripts.LiveObjects
                 tempRot.y += _speed / 3;
                 transform.localRotation = Quaternion.Euler(tempRot);
             }
+            */
+
+            if (_droneMovementValue < 0)
+            {
+                var tempRot = transform.localRotation.eulerAngles;
+                tempRot.y -= _speed / 3;
+                transform.localRotation = Quaternion.Euler(tempRot);
+            }
+            if (_droneMovementValue > 0)
+            {
+                var tempRot = transform.localRotation.eulerAngles;
+                tempRot.y += _speed / 3;
+                transform.localRotation = Quaternion.Euler(tempRot);
+            }
         }
 
         private void CalculateMovementFixedUpdate()
         {
-            ///
-            ///
-            ///
+            /*
             if (Input.GetKey(KeyCode.Space))
             {
                 _rigidbody.AddForce(transform.up * _speed, ForceMode.Acceleration);
@@ -110,13 +145,21 @@ namespace Game.Scripts.LiveObjects
             {
                 _rigidbody.AddForce(-transform.up * _speed, ForceMode.Acceleration);
             }
+            */
+
+            if (_droneLiftValue < 0)
+            {
+                _rigidbody.AddForce(transform.up * _speed, ForceMode.Acceleration);
+            }
+            if (_droneLiftValue > 0)
+            {
+                _rigidbody.AddForce(-transform.up * _speed, ForceMode.Acceleration);
+            }
         }
 
         private void CalculateTilt()
-        {
-            ///
-            ///
-            ///
+        {          
+            /*
             if (Input.GetKey(KeyCode.A)) 
                 transform.rotation = Quaternion.Euler(00, transform.localRotation.eulerAngles.y, 30);
             else if (Input.GetKey(KeyCode.D))
@@ -127,7 +170,20 @@ namespace Game.Scripts.LiveObjects
                 transform.rotation = Quaternion.Euler(-30, transform.localRotation.eulerAngles.y, 0);
             else 
                 transform.rotation = Quaternion.Euler(0, transform.localRotation.eulerAngles.y, 0);
+            */
+            
+            if (_droneRotationValue < 0)
+                transform.rotation = Quaternion.Euler(00, transform.localRotation.eulerAngles.y, 30);
+            else if(_droneRotationValue > 0)
+                transform.rotation = Quaternion.Euler(0, transform.localRotation.eulerAngles.y, -30);
+            else if(_droneMovementValue > 0)
+                transform.rotation = Quaternion.Euler(30, transform.localRotation.eulerAngles.y, 0);
+            else if (_droneMovementValue < 0)
+                transform.rotation = Quaternion.Euler(-30, transform.localRotation.eulerAngles.y, 0);
+            else
+                transform.rotation = Quaternion.Euler(0, transform.localRotation.eulerAngles.y, 0);            
         }
+        //
 
         private void OnDisable()
         {

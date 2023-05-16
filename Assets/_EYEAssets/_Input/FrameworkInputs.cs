@@ -44,6 +44,15 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Elevation"",
+                    ""type"": ""Button"",
+                    ""id"": ""c0c906b6-5b48-410e-99bd-8d68a2160cf4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -110,6 +119,39 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""48037ee8-d1bf-46b3-a948-c9c66b6d530e"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Elevation"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""09a064ea-c823-40ae-807c-72be478a255f"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Elevation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""75706b79-1cef-4e14-9eeb-184e1b2b2bf2"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Elevation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -426,6 +468,7 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Rotation = m_Player.FindAction("Rotation", throwIfNotFound: true);
+        m_Player_Elevation = m_Player.FindAction("Elevation", throwIfNotFound: true);
         // Drone
         m_Drone = asset.FindActionMap("Drone", throwIfNotFound: true);
         m_Drone_MoveForwardBack = m_Drone.FindAction("MoveForwardBack", throwIfNotFound: true);
@@ -502,12 +545,14 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Rotation;
+    private readonly InputAction m_Player_Elevation;
     public struct PlayerActions
     {
         private @FrameworkInputs m_Wrapper;
         public PlayerActions(@FrameworkInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Rotation => m_Wrapper.m_Player_Rotation;
+        public InputAction @Elevation => m_Wrapper.m_Player_Elevation;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -523,6 +568,9 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                 @Rotation.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotation;
                 @Rotation.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotation;
                 @Rotation.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotation;
+                @Elevation.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnElevation;
+                @Elevation.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnElevation;
+                @Elevation.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnElevation;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -533,6 +581,9 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                 @Rotation.started += instance.OnRotation;
                 @Rotation.performed += instance.OnRotation;
                 @Rotation.canceled += instance.OnRotation;
+                @Elevation.started += instance.OnElevation;
+                @Elevation.performed += instance.OnElevation;
+                @Elevation.canceled += instance.OnElevation;
             }
         }
     }
@@ -697,6 +748,7 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
+        void OnElevation(InputAction.CallbackContext context);
     }
     public interface IDroneActions
     {

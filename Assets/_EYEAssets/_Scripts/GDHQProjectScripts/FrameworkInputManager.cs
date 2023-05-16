@@ -1,3 +1,4 @@
+using Game.Scripts.LiveObjects;
 using Game.Scripts.Player;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ public class FrameworkInputManager : MonoBehaviour
 {
     private FrameworkInputs _inputs;
     private Player _player;
+    private Drone _drone;
 
     void Start()
     {
@@ -31,10 +33,12 @@ public class FrameworkInputManager : MonoBehaviour
         _inputs.Melee.Punch.performed += Punch_performed;
     }
 
+    //Punch
     private void Punch_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
     }
 
+    //Forklift
     private void ForksRaiseLower_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
     }
@@ -43,18 +47,26 @@ public class FrameworkInputManager : MonoBehaviour
     {
     }
 
+    //Drone
     private void Elevation_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
+        var droneLiftValue = _inputs.Drone.Elevation.ReadValue<float>();
+        _drone.LiftDrone(droneLiftValue);
     }
 
     private void Rotate_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
+        var droneRotation = _inputs.Drone.Rotate.ReadValue<float>();
+        _drone.RotateDrone(droneRotation);
     }
 
     private void MoveForwardBack_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
+        var droneMovementValue = _inputs.Drone.MoveForwardBack.ReadValue<float>();
+        _drone.MoveDrone(droneMovementValue);
     }
 
+    //Player
     private void PlayerMovement_canceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
         var playerMovement = _inputs.Player.Movement.ReadValue<float>();
@@ -65,13 +77,13 @@ public class FrameworkInputManager : MonoBehaviour
     {
         var playerMovement = _inputs.Player.Movement.ReadValue<float>();
         _player.MoveOurPlayer(playerMovement);
-        Debug.Log(playerMovement);
-        
+        Debug.Log(playerMovement);        
     }
 
     private void PlayerMovement_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
     }
+
     private void PlayerRotation_canceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
         _player.RotateOurPlayer(0f);
@@ -83,6 +95,5 @@ public class FrameworkInputManager : MonoBehaviour
         _player.RotateOurPlayer(playerRotation);
         Debug.Log(playerRotation);
     }
-
 
 }
