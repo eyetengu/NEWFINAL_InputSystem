@@ -1,0 +1,34 @@
+{
+    "name": "UIChargeBarInputs",
+    "maps": [
+        {
+            "name": "UIChargeBar",
+            "id": "eaa03785-926d-4371-a90a-5300792858a6",
+            "actions": [
+                {
+                    "name": "Charge",
+                    "type": "Button",
+                    "id": "0aff085d-f5df-4e78-842a-2afb0a23c947",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b14a4fb3-514e-4497-b7f5-0cc30c802f3e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Charge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
