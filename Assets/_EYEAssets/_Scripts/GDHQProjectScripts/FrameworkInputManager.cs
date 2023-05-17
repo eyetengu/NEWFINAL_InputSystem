@@ -9,6 +9,7 @@ public class FrameworkInputManager : MonoBehaviour
     private FrameworkInputs _inputs;
     private Player _player;
     private Drone _drone;
+    private Forklift _forklift;
 
     void Start()
     {
@@ -27,11 +28,13 @@ public class FrameworkInputManager : MonoBehaviour
         _inputs.Drone.Rotate.performed += Rotate_performed;
         _inputs.Drone.Elevation.performed += Elevation_performed;
 
-        _inputs.Forklift.Movement.performed += Movement_performed1;
+        _inputs.Forklift.Movement.performed += ForkliftMovement_performed1;
+        _inputs.Forklift.Rotation.performed += ForkliftRotation_performed;
         _inputs.Forklift.ForksRaiseLower.performed += ForksRaiseLower_performed;
 
         _inputs.Melee.Punch.performed += Punch_performed;
     }
+
 
     //Punch
     private void Punch_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
@@ -41,10 +44,20 @@ public class FrameworkInputManager : MonoBehaviour
     //Forklift
     private void ForksRaiseLower_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
+        var forkLiftLiftValues = _inputs.Forklift.ForksRaiseLower.ReadValue<float>();
+        _forklift.LiftValues(forkLiftLiftValues);
     }
 
-    private void Movement_performed1(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    private void ForkliftRotation_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
+        var forkliftRotation = _inputs.Forklift.Rotation.ReadValue<float>();
+        _forklift.ForkliftRotation(forkliftRotation);
+    }
+
+    private void ForkliftMovement_performed1(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        var movementValues = _inputs.Forklift.Movement.ReadValue<float>();
+        _forklift.ForkliftMoveValues(movementValues);
     }
 
     //Drone

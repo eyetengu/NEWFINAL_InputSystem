@@ -297,9 +297,9 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""2663b95a-dc70-45c5-b09f-1bfdd77051b0"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -312,64 +312,18 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Rotation"",
+                    ""type"": ""Button"",
+                    ""id"": ""c11ebd1e-612b-4e10-8395-adffee6f7994"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""cc009c5b-a91d-494e-a6fd-7e77678402f5"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""ae37c178-157d-4eda-adc3-e9de844adcbe"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""3f271054-adaf-4600-bf2c-4eb4f038a6ff"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""9c0b4f7e-dbaf-4b0f-a206-fc8ed6289328"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""546c2b82-7f84-41cc-a19a-0f273ff0ddf9"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
                 {
                     ""name"": ""1D Axis"",
                     ""id"": ""e7dd393a-663c-4847-8319-6a8279c9abcf"",
@@ -400,6 +354,72 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ForksRaiseLower"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""c046667e-c60d-4520-bac9-be3de3917faf"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""b7f8832f-22e7-4531-8827-d62b3b559b93"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""54f9ade7-df5f-47ef-a21e-fbbf26afa04d"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""dbe79689-2d94-4523-afec-9b9c6b99a69f"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""b726d33b-c134-4136-8279-5a0c6bd0db70"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""c532fb44-3bce-4d16-bd1c-e33fb8cb8f49"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -478,6 +498,7 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
         m_Forklift = asset.FindActionMap("Forklift", throwIfNotFound: true);
         m_Forklift_Movement = m_Forklift.FindAction("Movement", throwIfNotFound: true);
         m_Forklift_ForksRaiseLower = m_Forklift.FindAction("ForksRaiseLower", throwIfNotFound: true);
+        m_Forklift_Rotation = m_Forklift.FindAction("Rotation", throwIfNotFound: true);
         // Melee
         m_Melee = asset.FindActionMap("Melee", throwIfNotFound: true);
         m_Melee_Punch = m_Melee.FindAction("Punch", throwIfNotFound: true);
@@ -643,12 +664,14 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
     private IForkliftActions m_ForkliftActionsCallbackInterface;
     private readonly InputAction m_Forklift_Movement;
     private readonly InputAction m_Forklift_ForksRaiseLower;
+    private readonly InputAction m_Forklift_Rotation;
     public struct ForkliftActions
     {
         private @FrameworkInputs m_Wrapper;
         public ForkliftActions(@FrameworkInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Forklift_Movement;
         public InputAction @ForksRaiseLower => m_Wrapper.m_Forklift_ForksRaiseLower;
+        public InputAction @Rotation => m_Wrapper.m_Forklift_Rotation;
         public InputActionMap Get() { return m_Wrapper.m_Forklift; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -664,6 +687,9 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                 @ForksRaiseLower.started -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnForksRaiseLower;
                 @ForksRaiseLower.performed -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnForksRaiseLower;
                 @ForksRaiseLower.canceled -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnForksRaiseLower;
+                @Rotation.started -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnRotation;
+                @Rotation.performed -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnRotation;
+                @Rotation.canceled -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnRotation;
             }
             m_Wrapper.m_ForkliftActionsCallbackInterface = instance;
             if (instance != null)
@@ -674,6 +700,9 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                 @ForksRaiseLower.started += instance.OnForksRaiseLower;
                 @ForksRaiseLower.performed += instance.OnForksRaiseLower;
                 @ForksRaiseLower.canceled += instance.OnForksRaiseLower;
+                @Rotation.started += instance.OnRotation;
+                @Rotation.performed += instance.OnRotation;
+                @Rotation.canceled += instance.OnRotation;
             }
         }
     }
@@ -760,6 +789,7 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnForksRaiseLower(InputAction.CallbackContext context);
+        void OnRotation(InputAction.CallbackContext context);
     }
     public interface IMeleeActions
     {

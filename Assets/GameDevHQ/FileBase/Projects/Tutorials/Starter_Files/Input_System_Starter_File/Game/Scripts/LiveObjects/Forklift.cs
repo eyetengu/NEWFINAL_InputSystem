@@ -23,6 +23,12 @@ namespace Game.Scripts.LiveObjects
         public static event Action onDriveModeEntered;
         public static event Action onDriveModeExited;
 
+        //
+        private float _forkliftForkValues;
+        private float _forkliftMoveValues;
+        private float _forkliftRotation;
+        //
+
         private void OnEnable()
         {
             InteractableZone.onZoneInteractionComplete += EnterDriveMode;
@@ -49,24 +55,35 @@ namespace Game.Scripts.LiveObjects
             
         }
 
+        public void LiftValues(float forkValues)
+        {
+            _forkliftForkValues = forkValues;
+        }
+
+        public void ForkliftMoveValues(float moveValuesForklift)
+        {
+            _forkliftMoveValues= moveValuesForklift;
+        }
+
+        public void ForkliftRotation(float forkRotate)
+        {
+            _forkliftRotation =forkRotate;
+        }
+
         private void Update()
         {
             if (_inDriveMode == true)
             {
-                LiftControls();
+                LiftControls(_forkliftForkValues);
                 CalcutateMovement();
                 if (Input.GetKeyDown(KeyCode.Escape))
                     ExitDriveMode();
             }
-
         }
 
         private void CalcutateMovement()
         {
-            ///
-            ///
-            ///
-
+            /*
             float h = Input.GetAxisRaw("Horizontal");
             float v = Input.GetAxisRaw("Vertical");
             var direction = new Vector3(0, 0, v);
@@ -80,21 +97,41 @@ namespace Game.Scripts.LiveObjects
                 tempRot.y += h * _speed / 2;
                 transform.rotation = Quaternion.Euler(tempRot);
             }
+            */
+            var direction = new Vector3(0, 0, _forkliftMoveValues);
+            var velocity = direction * _speed;
+
+            transform.Translate(velocity * Time.deltaTime);
+
+            if (Mathf.Abs(_forkliftMoveValues) > 0)
+            {
+                var tempRot = transform.rotation.eulerAngles;
+                tempRot.y += _forkliftRotation * _speed / 2;
+                transform.rotation = Quaternion.Euler(tempRot);
+            }
         }
 
-        private void LiftControls()
+        public void LiftControls(float liftValues)
         {
+            /*
             if (Input.GetKey(KeyCode.R))
                 LiftUpRoutine();
             else if (Input.GetKey(KeyCode.T))
                 LiftDownRoutine();
+            */
+
+            if(liftValues < 0)
+            {
+                LiftUpRoutine();
+            }
+            else if (liftValues > 0)
+            {
+                LiftDownRoutine();
+            }
         }
 
         private void LiftUpRoutine()
-        {
-            ///
-            ///
-            ///
+        {            
             if (_lift.transform.localPosition.y < _liftUpperLimit.y)
             {
                 Vector3 tempPos = _lift.transform.localPosition;
@@ -107,9 +144,6 @@ namespace Game.Scripts.LiveObjects
 
         private void LiftDownRoutine()
         {
-            ///
-            ///
-            ///
             if (_lift.transform.localPosition.y > _liftLowerLimit.y)
             {
                 Vector3 tempPos = _lift.transform.localPosition;
