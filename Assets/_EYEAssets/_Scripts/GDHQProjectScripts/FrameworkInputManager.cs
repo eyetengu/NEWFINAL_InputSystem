@@ -18,7 +18,6 @@ public class FrameworkInputManager : MonoBehaviour
         _inputs = new FrameworkInputs();
         _inputs.Player.Enable();
 
-        _inputs.Player.Movement.performed += PlayerMovement_performed;
         _inputs.Player.Movement.started += PlayerMovement_started;
         _inputs.Player.Movement.canceled += PlayerMovement_canceled;
         _inputs.Player.Rotation.started += PlayerRotation_started;
@@ -34,7 +33,6 @@ public class FrameworkInputManager : MonoBehaviour
 
         _inputs.Melee.Punch.performed += Punch_performed;
     }
-
 
     //Punch
     private void Punch_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
@@ -92,11 +90,7 @@ public class FrameworkInputManager : MonoBehaviour
         _player.MoveOurPlayer(playerMovement);
         Debug.Log(playerMovement);        
     }
-
-    private void PlayerMovement_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-    }
-
+    
     private void PlayerRotation_canceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
         _player.RotateOurPlayer(0f);

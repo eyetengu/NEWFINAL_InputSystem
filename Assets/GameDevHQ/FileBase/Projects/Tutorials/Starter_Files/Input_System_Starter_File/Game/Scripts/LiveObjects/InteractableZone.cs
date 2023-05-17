@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Scripts.UI;
-
+using UnityEngine.InputSystem.Interactions;
 
 namespace Game.Scripts.LiveObjects
 {
@@ -56,22 +56,62 @@ namespace Game.Scripts.LiveObjects
             }
             set
             {
-                _currentZoneID = value; 
-                         
+                _currentZoneID = value;                          
             }
         }
-
 
         public static event Action<InteractableZone> onZoneInteractionComplete;
         public static event Action<int> onHoldStarted;
         public static event Action<int> onHoldEnded;
 
-        private void OnEnable()
+        //
+        private FrameworkInputs _inputs;
+        //
+
+        private void Start()
         {
-            InteractableZone.onZoneInteractionComplete += SetMarker;
+            _inputs= new FrameworkInputs();
+            _inputs.Player.Enable();
+            _inputs.Player.Action.performed += Action_performed;
+            _inputs.Player.Collect.performed += Collect_performed;
+            _inputs.Player.PressAndHold.started += PressAndHold_started;
+            _inputs.Player.PressAndHold.canceled += PressAndHold_canceled;
+            _inputs.Player.PressAndHold.performed += PressAndHold_performed;
 
         }
 
+        //Interactions        
+        private void PressAndHold_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
+        {
+            PerformHoldAction();
+        }
+
+        private void PressAndHold_canceled(UnityEngine.InputSystem.InputAction.CallbackContext context)
+        {
+
+        }
+
+        private void PressAndHold_started(UnityEngine.InputSystem.InputAction.CallbackContext context)
+        {
+
+        }
+
+        private void Collect_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
+        {
+            CollectItems();
+        }
+
+        private void Action_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+        {
+            PerformAction();
+        }
+
+
+        private void OnEnable()
+        {
+            InteractableZone.onZoneInteractionComplete += SetMarker;
+        }
+        
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player") && _currentZoneID > _requiredID)
@@ -94,9 +134,7 @@ namespace Game.Scripts.LiveObjects
                                 UIManager.Instance.DisplayInteractableZoneMessage(true, $"Press the {_zoneKeyInput.ToString()} key to collect");
                         }
                         break;
-                        ///
-                        ///
-                        ///
+    
                     case ZoneType.Action:
                         if (_actionPerformed == false)
                         {
@@ -110,9 +148,7 @@ namespace Game.Scripts.LiveObjects
                                 UIManager.Instance.DisplayInteractableZoneMessage(true, $"Press the {_zoneKeyInput.ToString()} key to perform action");
                         }
                         break;
-                ///
-                ///
-                ///
+                
                     case ZoneType.HoldAction:
                         _inZone = true;
                         if (_displayMessage != null)
@@ -159,9 +195,7 @@ namespace Game.Scripts.LiveObjects
                 else if (Input.GetKey(_zoneKeyInput) && _keyState == KeyState.PressHold && _inHoldState == false)
                 {
                     _inHoldState = true;
-
                    
-
                     switch (_zoneType)
                     {                      
                         case ZoneType.HoldAction:
@@ -174,9 +208,7 @@ namespace Game.Scripts.LiveObjects
                 {
                     _inHoldState = false;
                     onHoldEnded?.Invoke(_zoneID);
-                }
-
-               
+                }               
             }
         }
        
@@ -208,7 +240,7 @@ namespace Game.Scripts.LiveObjects
             onZoneInteractionComplete?.Invoke(this);
         }
 
-        private void PerformHoldAction()
+        public void PerformHoldAction()
         {
             UIManager.Instance.DisplayInteractableZoneMessage(false);
             onHoldStarted?.Invoke(_zoneID);

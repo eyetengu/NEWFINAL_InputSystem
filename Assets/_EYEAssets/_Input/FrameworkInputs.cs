@@ -53,6 +53,33 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Collect"",
+                    ""type"": ""Button"",
+                    ""id"": ""c924f8f7-3493-40c8-974c-ea985009d37e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Action"",
+                    ""type"": ""Button"",
+                    ""id"": ""230d6231-89ef-4e94-9a7a-69ae3d093a90"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PressAndHold"",
+                    ""type"": ""Button"",
+                    ""id"": ""c6ac3e82-28e7-45d9-a6ee-d2786a318168"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=1)"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -154,6 +181,39 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                     ""action"": ""Elevation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""58bc11bd-0fbb-4b4a-8aab-fca52aa14bbd"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Collect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d9c1ede8-ca39-4a87-b754-133fbe93da6b"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""682000ec-2cc6-4cf4-8dbe-12b2ae6a2d7f"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PressAndHold"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -454,13 +514,13 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Hacking"",
-            ""id"": ""8f7c04a7-81da-43d7-a4d0-eb7d5415793e"",
+            ""name"": ""Collect"",
+            ""id"": ""e8974a22-2bc1-42ce-8a57-0d87cff6784b"",
             ""actions"": [
                 {
-                    ""name"": ""PressAndHold"",
+                    ""name"": ""New action"",
                     ""type"": ""Button"",
-                    ""id"": ""031e7f2f-d4c7-4ebd-ae4c-11f83444e2d9"",
+                    ""id"": ""5e7165f0-fcf9-477e-b980-09f31d101022"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -470,7 +530,63 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""36b7ab03-0605-4a60-a221-3fd3b6eca3cd"",
+                    ""id"": ""e4071294-c807-426e-82f5-26d587fc4ff1"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Action"",
+            ""id"": ""fba276ea-2853-4b9a-a40a-273412400870"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""a3b07fd0-89dc-44ac-814f-9aa378f896e0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""df2c88af-64dd-4949-ab9a-47627d9b8df9"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""PressAndHold"",
+            ""id"": ""f7006d12-d160-41e9-bc69-772b233c5e5d"",
+            ""actions"": [
+                {
+                    ""name"": ""PressAndHold"",
+                    ""type"": ""Button"",
+                    ""id"": ""ed06bbdc-6ad1-4dbd-881d-a3436c8f26df"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""22ee1e73-f61a-4e93-b94c-e7afb344367c"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": ""Hold(duration=1)"",
                     ""processors"": """",
@@ -489,6 +605,9 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Rotation = m_Player.FindAction("Rotation", throwIfNotFound: true);
         m_Player_Elevation = m_Player.FindAction("Elevation", throwIfNotFound: true);
+        m_Player_Collect = m_Player.FindAction("Collect", throwIfNotFound: true);
+        m_Player_Action = m_Player.FindAction("Action", throwIfNotFound: true);
+        m_Player_PressAndHold = m_Player.FindAction("PressAndHold", throwIfNotFound: true);
         // Drone
         m_Drone = asset.FindActionMap("Drone", throwIfNotFound: true);
         m_Drone_MoveForwardBack = m_Drone.FindAction("MoveForwardBack", throwIfNotFound: true);
@@ -502,9 +621,15 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
         // Melee
         m_Melee = asset.FindActionMap("Melee", throwIfNotFound: true);
         m_Melee_Punch = m_Melee.FindAction("Punch", throwIfNotFound: true);
-        // Hacking
-        m_Hacking = asset.FindActionMap("Hacking", throwIfNotFound: true);
-        m_Hacking_PressAndHold = m_Hacking.FindAction("PressAndHold", throwIfNotFound: true);
+        // Collect
+        m_Collect = asset.FindActionMap("Collect", throwIfNotFound: true);
+        m_Collect_Newaction = m_Collect.FindAction("New action", throwIfNotFound: true);
+        // Action
+        m_Action = asset.FindActionMap("Action", throwIfNotFound: true);
+        m_Action_Newaction = m_Action.FindAction("New action", throwIfNotFound: true);
+        // PressAndHold
+        m_PressAndHold = asset.FindActionMap("PressAndHold", throwIfNotFound: true);
+        m_PressAndHold_PressAndHold = m_PressAndHold.FindAction("PressAndHold", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -567,6 +692,9 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Rotation;
     private readonly InputAction m_Player_Elevation;
+    private readonly InputAction m_Player_Collect;
+    private readonly InputAction m_Player_Action;
+    private readonly InputAction m_Player_PressAndHold;
     public struct PlayerActions
     {
         private @FrameworkInputs m_Wrapper;
@@ -574,6 +702,9 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Rotation => m_Wrapper.m_Player_Rotation;
         public InputAction @Elevation => m_Wrapper.m_Player_Elevation;
+        public InputAction @Collect => m_Wrapper.m_Player_Collect;
+        public InputAction @Action => m_Wrapper.m_Player_Action;
+        public InputAction @PressAndHold => m_Wrapper.m_Player_PressAndHold;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -592,6 +723,15 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                 @Elevation.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnElevation;
                 @Elevation.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnElevation;
                 @Elevation.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnElevation;
+                @Collect.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCollect;
+                @Collect.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCollect;
+                @Collect.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCollect;
+                @Action.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAction;
+                @Action.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAction;
+                @Action.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAction;
+                @PressAndHold.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPressAndHold;
+                @PressAndHold.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPressAndHold;
+                @PressAndHold.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPressAndHold;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -605,6 +745,15 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                 @Elevation.started += instance.OnElevation;
                 @Elevation.performed += instance.OnElevation;
                 @Elevation.canceled += instance.OnElevation;
+                @Collect.started += instance.OnCollect;
+                @Collect.performed += instance.OnCollect;
+                @Collect.canceled += instance.OnCollect;
+                @Action.started += instance.OnAction;
+                @Action.performed += instance.OnAction;
+                @Action.canceled += instance.OnAction;
+                @PressAndHold.started += instance.OnPressAndHold;
+                @PressAndHold.performed += instance.OnPressAndHold;
+                @PressAndHold.canceled += instance.OnPressAndHold;
             }
         }
     }
@@ -741,29 +890,95 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
     }
     public MeleeActions @Melee => new MeleeActions(this);
 
-    // Hacking
-    private readonly InputActionMap m_Hacking;
-    private IHackingActions m_HackingActionsCallbackInterface;
-    private readonly InputAction m_Hacking_PressAndHold;
-    public struct HackingActions
+    // Collect
+    private readonly InputActionMap m_Collect;
+    private ICollectActions m_CollectActionsCallbackInterface;
+    private readonly InputAction m_Collect_Newaction;
+    public struct CollectActions
     {
         private @FrameworkInputs m_Wrapper;
-        public HackingActions(@FrameworkInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @PressAndHold => m_Wrapper.m_Hacking_PressAndHold;
-        public InputActionMap Get() { return m_Wrapper.m_Hacking; }
+        public CollectActions(@FrameworkInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Collect_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Collect; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(HackingActions set) { return set.Get(); }
-        public void SetCallbacks(IHackingActions instance)
+        public static implicit operator InputActionMap(CollectActions set) { return set.Get(); }
+        public void SetCallbacks(ICollectActions instance)
         {
-            if (m_Wrapper.m_HackingActionsCallbackInterface != null)
+            if (m_Wrapper.m_CollectActionsCallbackInterface != null)
             {
-                @PressAndHold.started -= m_Wrapper.m_HackingActionsCallbackInterface.OnPressAndHold;
-                @PressAndHold.performed -= m_Wrapper.m_HackingActionsCallbackInterface.OnPressAndHold;
-                @PressAndHold.canceled -= m_Wrapper.m_HackingActionsCallbackInterface.OnPressAndHold;
+                @Newaction.started -= m_Wrapper.m_CollectActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_CollectActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_CollectActionsCallbackInterface.OnNewaction;
             }
-            m_Wrapper.m_HackingActionsCallbackInterface = instance;
+            m_Wrapper.m_CollectActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public CollectActions @Collect => new CollectActions(this);
+
+    // Action
+    private readonly InputActionMap m_Action;
+    private IActionActions m_ActionActionsCallbackInterface;
+    private readonly InputAction m_Action_Newaction;
+    public struct ActionActions
+    {
+        private @FrameworkInputs m_Wrapper;
+        public ActionActions(@FrameworkInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Action_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Action; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ActionActions set) { return set.Get(); }
+        public void SetCallbacks(IActionActions instance)
+        {
+            if (m_Wrapper.m_ActionActionsCallbackInterface != null)
+            {
+                @Newaction.started -= m_Wrapper.m_ActionActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_ActionActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_ActionActionsCallbackInterface.OnNewaction;
+            }
+            m_Wrapper.m_ActionActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public ActionActions @Action => new ActionActions(this);
+
+    // PressAndHold
+    private readonly InputActionMap m_PressAndHold;
+    private IPressAndHoldActions m_PressAndHoldActionsCallbackInterface;
+    private readonly InputAction m_PressAndHold_PressAndHold;
+    public struct PressAndHoldActions
+    {
+        private @FrameworkInputs m_Wrapper;
+        public PressAndHoldActions(@FrameworkInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @PressAndHold => m_Wrapper.m_PressAndHold_PressAndHold;
+        public InputActionMap Get() { return m_Wrapper.m_PressAndHold; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PressAndHoldActions set) { return set.Get(); }
+        public void SetCallbacks(IPressAndHoldActions instance)
+        {
+            if (m_Wrapper.m_PressAndHoldActionsCallbackInterface != null)
+            {
+                @PressAndHold.started -= m_Wrapper.m_PressAndHoldActionsCallbackInterface.OnPressAndHold;
+                @PressAndHold.performed -= m_Wrapper.m_PressAndHoldActionsCallbackInterface.OnPressAndHold;
+                @PressAndHold.canceled -= m_Wrapper.m_PressAndHoldActionsCallbackInterface.OnPressAndHold;
+            }
+            m_Wrapper.m_PressAndHoldActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @PressAndHold.started += instance.OnPressAndHold;
@@ -772,12 +987,15 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
             }
         }
     }
-    public HackingActions @Hacking => new HackingActions(this);
+    public PressAndHoldActions @PressAndHold => new PressAndHoldActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
         void OnElevation(InputAction.CallbackContext context);
+        void OnCollect(InputAction.CallbackContext context);
+        void OnAction(InputAction.CallbackContext context);
+        void OnPressAndHold(InputAction.CallbackContext context);
     }
     public interface IDroneActions
     {
@@ -795,7 +1013,15 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
     {
         void OnPunch(InputAction.CallbackContext context);
     }
-    public interface IHackingActions
+    public interface ICollectActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface IActionActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface IPressAndHoldActions
     {
         void OnPressAndHold(InputAction.CallbackContext context);
     }

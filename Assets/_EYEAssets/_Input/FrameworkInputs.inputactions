@@ -31,6 +31,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Collect",
+                    "type": "Button",
+                    "id": "c924f8f7-3493-40c8-974c-ea985009d37e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Action",
+                    "type": "Button",
+                    "id": "230d6231-89ef-4e94-9a7a-69ae3d093a90",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PressAndHold",
+                    "type": "Button",
+                    "id": "c6ac3e82-28e7-45d9-a6ee-d2786a318168",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=1)",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -132,6 +159,39 @@
                     "action": "Elevation",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "58bc11bd-0fbb-4b4a-8aab-fca52aa14bbd",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Collect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d9c1ede8-ca39-4a87-b754-133fbe93da6b",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "682000ec-2cc6-4cf4-8dbe-12b2ae6a2d7f",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressAndHold",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -432,13 +492,13 @@
             ]
         },
         {
-            "name": "Hacking",
-            "id": "8f7c04a7-81da-43d7-a4d0-eb7d5415793e",
+            "name": "Collect",
+            "id": "e8974a22-2bc1-42ce-8a57-0d87cff6784b",
             "actions": [
                 {
-                    "name": "PressAndHold",
+                    "name": "New action",
                     "type": "Button",
-                    "id": "031e7f2f-d4c7-4ebd-ae4c-11f83444e2d9",
+                    "id": "5e7165f0-fcf9-477e-b980-09f31d101022",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -448,7 +508,63 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "36b7ab03-0605-4a60-a221-3fd3b6eca3cd",
+                    "id": "e4071294-c807-426e-82f5-26d587fc4ff1",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Action",
+            "id": "fba276ea-2853-4b9a-a40a-273412400870",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "a3b07fd0-89dc-44ac-814f-9aa378f896e0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "df2c88af-64dd-4949-ab9a-47627d9b8df9",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "PressAndHold",
+            "id": "f7006d12-d160-41e9-bc69-772b233c5e5d",
+            "actions": [
+                {
+                    "name": "PressAndHold",
+                    "type": "Button",
+                    "id": "ed06bbdc-6ad1-4dbd-881d-a3436c8f26df",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "22ee1e73-f61a-4e93-b94c-e7afb344367c",
                     "path": "<Keyboard>/e",
                     "interactions": "Hold(duration=1)",
                     "processors": "",
