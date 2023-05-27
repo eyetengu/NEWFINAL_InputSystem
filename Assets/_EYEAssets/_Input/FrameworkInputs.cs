@@ -117,6 +117,39 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""Joystick"",
+                    ""id"": ""7ec392ac-4088-468f-9292-3142b4b0e876"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""ea4257c0-aa4c-4096-ba24-ad273b51aefa"",
+                    ""path"": ""<Joystick>/stick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""83bb1f93-49ea-4233-a22a-f8a3f85e697a"",
+                    ""path"": ""<Joystick>/stick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": ""1D Axis"",
                     ""id"": ""cbdb9f6b-84fc-4597-9490-b8f8c8dce514"",
                     ""path"": ""1DAxis"",
@@ -142,6 +175,39 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                     ""name"": ""positive"",
                     ""id"": ""f9fe3438-d451-471d-8161-ef6b28da2d8e"",
                     ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Joystick"",
+                    ""id"": ""8567268b-0002-41c2-8056-56ebcce1e68e"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""9b7a1306-236d-4274-937f-5fbdf9bf3634"",
+                    ""path"": ""<Joystick>/stick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""df18a214-171f-4443-ae02-bb52e0c352c3"",
+                    ""path"": ""<Joystick>/stick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -431,7 +497,7 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""b7f8832f-22e7-4531-8827-d62b3b559b93"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -442,7 +508,7 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""54f9ade7-df5f-47ef-a21e-fbbf26afa04d"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -514,13 +580,13 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Collect"",
-            ""id"": ""e8974a22-2bc1-42ce-8a57-0d87cff6784b"",
+            ""name"": ""Hacking"",
+            ""id"": ""6585cf1e-04f4-463d-a519-6b97307b1372"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""AccessFramework"",
                     ""type"": ""Button"",
-                    ""id"": ""5e7165f0-fcf9-477e-b980-09f31d101022"",
+                    ""id"": ""d9546867-2948-43e4-9b0d-9bfaea553267"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -530,68 +596,12 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""e4071294-c807-426e-82f5-26d587fc4ff1"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""New action"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Action"",
-            ""id"": ""fba276ea-2853-4b9a-a40a-273412400870"",
-            ""actions"": [
-                {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
-                    ""id"": ""a3b07fd0-89dc-44ac-814f-9aa378f896e0"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""df2c88af-64dd-4949-ab9a-47627d9b8df9"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""New action"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""PressAndHold"",
-            ""id"": ""f7006d12-d160-41e9-bc69-772b233c5e5d"",
-            ""actions"": [
-                {
-                    ""name"": ""PressAndHold"",
-                    ""type"": ""Button"",
-                    ""id"": ""ed06bbdc-6ad1-4dbd-881d-a3436c8f26df"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""22ee1e73-f61a-4e93-b94c-e7afb344367c"",
+                    ""id"": ""14acf7e8-0b63-43f8-ae3c-77ffee13ecf1"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": ""Hold(duration=1)"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PressAndHold"",
+                    ""action"": ""AccessFramework"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -621,15 +631,9 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
         // Melee
         m_Melee = asset.FindActionMap("Melee", throwIfNotFound: true);
         m_Melee_Punch = m_Melee.FindAction("Punch", throwIfNotFound: true);
-        // Collect
-        m_Collect = asset.FindActionMap("Collect", throwIfNotFound: true);
-        m_Collect_Newaction = m_Collect.FindAction("New action", throwIfNotFound: true);
-        // Action
-        m_Action = asset.FindActionMap("Action", throwIfNotFound: true);
-        m_Action_Newaction = m_Action.FindAction("New action", throwIfNotFound: true);
-        // PressAndHold
-        m_PressAndHold = asset.FindActionMap("PressAndHold", throwIfNotFound: true);
-        m_PressAndHold_PressAndHold = m_PressAndHold.FindAction("PressAndHold", throwIfNotFound: true);
+        // Hacking
+        m_Hacking = asset.FindActionMap("Hacking", throwIfNotFound: true);
+        m_Hacking_AccessFramework = m_Hacking.FindAction("AccessFramework", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -890,104 +894,38 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
     }
     public MeleeActions @Melee => new MeleeActions(this);
 
-    // Collect
-    private readonly InputActionMap m_Collect;
-    private ICollectActions m_CollectActionsCallbackInterface;
-    private readonly InputAction m_Collect_Newaction;
-    public struct CollectActions
+    // Hacking
+    private readonly InputActionMap m_Hacking;
+    private IHackingActions m_HackingActionsCallbackInterface;
+    private readonly InputAction m_Hacking_AccessFramework;
+    public struct HackingActions
     {
         private @FrameworkInputs m_Wrapper;
-        public CollectActions(@FrameworkInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_Collect_Newaction;
-        public InputActionMap Get() { return m_Wrapper.m_Collect; }
+        public HackingActions(@FrameworkInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @AccessFramework => m_Wrapper.m_Hacking_AccessFramework;
+        public InputActionMap Get() { return m_Wrapper.m_Hacking; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(CollectActions set) { return set.Get(); }
-        public void SetCallbacks(ICollectActions instance)
+        public static implicit operator InputActionMap(HackingActions set) { return set.Get(); }
+        public void SetCallbacks(IHackingActions instance)
         {
-            if (m_Wrapper.m_CollectActionsCallbackInterface != null)
+            if (m_Wrapper.m_HackingActionsCallbackInterface != null)
             {
-                @Newaction.started -= m_Wrapper.m_CollectActionsCallbackInterface.OnNewaction;
-                @Newaction.performed -= m_Wrapper.m_CollectActionsCallbackInterface.OnNewaction;
-                @Newaction.canceled -= m_Wrapper.m_CollectActionsCallbackInterface.OnNewaction;
+                @AccessFramework.started -= m_Wrapper.m_HackingActionsCallbackInterface.OnAccessFramework;
+                @AccessFramework.performed -= m_Wrapper.m_HackingActionsCallbackInterface.OnAccessFramework;
+                @AccessFramework.canceled -= m_Wrapper.m_HackingActionsCallbackInterface.OnAccessFramework;
             }
-            m_Wrapper.m_CollectActionsCallbackInterface = instance;
+            m_Wrapper.m_HackingActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
+                @AccessFramework.started += instance.OnAccessFramework;
+                @AccessFramework.performed += instance.OnAccessFramework;
+                @AccessFramework.canceled += instance.OnAccessFramework;
             }
         }
     }
-    public CollectActions @Collect => new CollectActions(this);
-
-    // Action
-    private readonly InputActionMap m_Action;
-    private IActionActions m_ActionActionsCallbackInterface;
-    private readonly InputAction m_Action_Newaction;
-    public struct ActionActions
-    {
-        private @FrameworkInputs m_Wrapper;
-        public ActionActions(@FrameworkInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_Action_Newaction;
-        public InputActionMap Get() { return m_Wrapper.m_Action; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(ActionActions set) { return set.Get(); }
-        public void SetCallbacks(IActionActions instance)
-        {
-            if (m_Wrapper.m_ActionActionsCallbackInterface != null)
-            {
-                @Newaction.started -= m_Wrapper.m_ActionActionsCallbackInterface.OnNewaction;
-                @Newaction.performed -= m_Wrapper.m_ActionActionsCallbackInterface.OnNewaction;
-                @Newaction.canceled -= m_Wrapper.m_ActionActionsCallbackInterface.OnNewaction;
-            }
-            m_Wrapper.m_ActionActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
-            }
-        }
-    }
-    public ActionActions @Action => new ActionActions(this);
-
-    // PressAndHold
-    private readonly InputActionMap m_PressAndHold;
-    private IPressAndHoldActions m_PressAndHoldActionsCallbackInterface;
-    private readonly InputAction m_PressAndHold_PressAndHold;
-    public struct PressAndHoldActions
-    {
-        private @FrameworkInputs m_Wrapper;
-        public PressAndHoldActions(@FrameworkInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @PressAndHold => m_Wrapper.m_PressAndHold_PressAndHold;
-        public InputActionMap Get() { return m_Wrapper.m_PressAndHold; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PressAndHoldActions set) { return set.Get(); }
-        public void SetCallbacks(IPressAndHoldActions instance)
-        {
-            if (m_Wrapper.m_PressAndHoldActionsCallbackInterface != null)
-            {
-                @PressAndHold.started -= m_Wrapper.m_PressAndHoldActionsCallbackInterface.OnPressAndHold;
-                @PressAndHold.performed -= m_Wrapper.m_PressAndHoldActionsCallbackInterface.OnPressAndHold;
-                @PressAndHold.canceled -= m_Wrapper.m_PressAndHoldActionsCallbackInterface.OnPressAndHold;
-            }
-            m_Wrapper.m_PressAndHoldActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @PressAndHold.started += instance.OnPressAndHold;
-                @PressAndHold.performed += instance.OnPressAndHold;
-                @PressAndHold.canceled += instance.OnPressAndHold;
-            }
-        }
-    }
-    public PressAndHoldActions @PressAndHold => new PressAndHoldActions(this);
+    public HackingActions @Hacking => new HackingActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -1013,16 +951,8 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
     {
         void OnPunch(InputAction.CallbackContext context);
     }
-    public interface ICollectActions
+    public interface IHackingActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
-    }
-    public interface IActionActions
-    {
-        void OnNewaction(InputAction.CallbackContext context);
-    }
-    public interface IPressAndHoldActions
-    {
-        void OnPressAndHold(InputAction.CallbackContext context);
+        void OnAccessFramework(InputAction.CallbackContext context);
     }
 }
