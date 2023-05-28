@@ -24,6 +24,7 @@ namespace Game.Scripts.LiveObjects
         public static event Action onDriveModeExited;
 
         //
+        private FrameworkInputManager _inputs;
         private float _forkliftForkValues;
         private float _forkliftMoveValues;
         private float _forkliftRotation;
@@ -34,10 +35,18 @@ namespace Game.Scripts.LiveObjects
             InteractableZone.onZoneInteractionComplete += EnterDriveMode;
         }
 
+        private void Start()
+        {
+            _inputs = GameObject.FindObjectOfType<FrameworkInputManager>();
+        }
+
         private void EnterDriveMode(InteractableZone zone)
         {
             if (_inDriveMode !=true && zone.GetZoneID() == 5) //Enter ForkLift
             {
+                //
+                _inputs.EnableForkliftActionMap();
+                //
                 _inDriveMode = true;
                 _forkliftCam.Priority = 11;
                 onDriveModeEntered?.Invoke();
@@ -48,6 +57,9 @@ namespace Game.Scripts.LiveObjects
 
         private void ExitDriveMode()
         {
+            //
+            _inputs.EnablePlayerActionMap();
+            //
             _inDriveMode = false;
             _forkliftCam.Priority = 9;            
             _driverModel.SetActive(false);

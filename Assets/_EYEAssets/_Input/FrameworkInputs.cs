@@ -80,6 +80,15 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Hold(duration=1)"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Punch"",
+                    ""type"": ""Button"",
+                    ""id"": ""8a270704-39f6-4db8-a4c2-d339cf44263b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -278,6 +287,17 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PressAndHold"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b14336ab-34ba-4164-a136-b9d3ca44f092"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Punch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -552,34 +572,6 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Melee"",
-            ""id"": ""c0a635d2-75d3-40b7-98d4-579b7ed5ae6f"",
-            ""actions"": [
-                {
-                    ""name"": ""Punch"",
-                    ""type"": ""Button"",
-                    ""id"": ""ac77483f-838f-4a48-8dd1-287b790c546e"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""1fe56727-9f30-4fb7-95d0-1ce1ab7d4276"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Punch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
             ""name"": ""Hacking"",
             ""id"": ""6585cf1e-04f4-463d-a519-6b97307b1372"",
             ""actions"": [
@@ -618,6 +610,7 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
         m_Player_Collect = m_Player.FindAction("Collect", throwIfNotFound: true);
         m_Player_Action = m_Player.FindAction("Action", throwIfNotFound: true);
         m_Player_PressAndHold = m_Player.FindAction("PressAndHold", throwIfNotFound: true);
+        m_Player_Punch = m_Player.FindAction("Punch", throwIfNotFound: true);
         // Drone
         m_Drone = asset.FindActionMap("Drone", throwIfNotFound: true);
         m_Drone_MoveForwardBack = m_Drone.FindAction("MoveForwardBack", throwIfNotFound: true);
@@ -628,9 +621,6 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
         m_Forklift_Movement = m_Forklift.FindAction("Movement", throwIfNotFound: true);
         m_Forklift_ForksRaiseLower = m_Forklift.FindAction("ForksRaiseLower", throwIfNotFound: true);
         m_Forklift_Rotation = m_Forklift.FindAction("Rotation", throwIfNotFound: true);
-        // Melee
-        m_Melee = asset.FindActionMap("Melee", throwIfNotFound: true);
-        m_Melee_Punch = m_Melee.FindAction("Punch", throwIfNotFound: true);
         // Hacking
         m_Hacking = asset.FindActionMap("Hacking", throwIfNotFound: true);
         m_Hacking_AccessFramework = m_Hacking.FindAction("AccessFramework", throwIfNotFound: true);
@@ -699,6 +689,7 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Collect;
     private readonly InputAction m_Player_Action;
     private readonly InputAction m_Player_PressAndHold;
+    private readonly InputAction m_Player_Punch;
     public struct PlayerActions
     {
         private @FrameworkInputs m_Wrapper;
@@ -709,6 +700,7 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
         public InputAction @Collect => m_Wrapper.m_Player_Collect;
         public InputAction @Action => m_Wrapper.m_Player_Action;
         public InputAction @PressAndHold => m_Wrapper.m_Player_PressAndHold;
+        public InputAction @Punch => m_Wrapper.m_Player_Punch;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -736,6 +728,9 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                 @PressAndHold.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPressAndHold;
                 @PressAndHold.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPressAndHold;
                 @PressAndHold.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPressAndHold;
+                @Punch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPunch;
+                @Punch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPunch;
+                @Punch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPunch;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -758,6 +753,9 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
                 @PressAndHold.started += instance.OnPressAndHold;
                 @PressAndHold.performed += instance.OnPressAndHold;
                 @PressAndHold.canceled += instance.OnPressAndHold;
+                @Punch.started += instance.OnPunch;
+                @Punch.performed += instance.OnPunch;
+                @Punch.canceled += instance.OnPunch;
             }
         }
     }
@@ -861,39 +859,6 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
     }
     public ForkliftActions @Forklift => new ForkliftActions(this);
 
-    // Melee
-    private readonly InputActionMap m_Melee;
-    private IMeleeActions m_MeleeActionsCallbackInterface;
-    private readonly InputAction m_Melee_Punch;
-    public struct MeleeActions
-    {
-        private @FrameworkInputs m_Wrapper;
-        public MeleeActions(@FrameworkInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Punch => m_Wrapper.m_Melee_Punch;
-        public InputActionMap Get() { return m_Wrapper.m_Melee; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MeleeActions set) { return set.Get(); }
-        public void SetCallbacks(IMeleeActions instance)
-        {
-            if (m_Wrapper.m_MeleeActionsCallbackInterface != null)
-            {
-                @Punch.started -= m_Wrapper.m_MeleeActionsCallbackInterface.OnPunch;
-                @Punch.performed -= m_Wrapper.m_MeleeActionsCallbackInterface.OnPunch;
-                @Punch.canceled -= m_Wrapper.m_MeleeActionsCallbackInterface.OnPunch;
-            }
-            m_Wrapper.m_MeleeActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @Punch.started += instance.OnPunch;
-                @Punch.performed += instance.OnPunch;
-                @Punch.canceled += instance.OnPunch;
-            }
-        }
-    }
-    public MeleeActions @Melee => new MeleeActions(this);
-
     // Hacking
     private readonly InputActionMap m_Hacking;
     private IHackingActions m_HackingActionsCallbackInterface;
@@ -934,6 +899,7 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
         void OnCollect(InputAction.CallbackContext context);
         void OnAction(InputAction.CallbackContext context);
         void OnPressAndHold(InputAction.CallbackContext context);
+        void OnPunch(InputAction.CallbackContext context);
     }
     public interface IDroneActions
     {
@@ -946,10 +912,6 @@ public partial class @FrameworkInputs : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnForksRaiseLower(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
-    }
-    public interface IMeleeActions
-    {
-        void OnPunch(InputAction.CallbackContext context);
     }
     public interface IHackingActions
     {

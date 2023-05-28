@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "Hold(duration=1)",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Punch",
+                    "type": "Button",
+                    "id": "8a270704-39f6-4db8-a4c2-d339cf44263b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -256,6 +265,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PressAndHold",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b14336ab-34ba-4164-a136-b9d3ca44f092",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Punch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -526,34 +546,6 @@
                     "action": "Rotation",
                     "isComposite": false,
                     "isPartOfComposite": true
-                }
-            ]
-        },
-        {
-            "name": "Melee",
-            "id": "c0a635d2-75d3-40b7-98d4-579b7ed5ae6f",
-            "actions": [
-                {
-                    "name": "Punch",
-                    "type": "Button",
-                    "id": "ac77483f-838f-4a48-8dd1-287b790c546e",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "1fe56727-9f30-4fb7-95d0-1ce1ab7d4276",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Punch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },

@@ -15,21 +15,41 @@ namespace Game.Scripts.LiveObjects
 
         private List<Rigidbody> _brakeOff = new List<Rigidbody>();
 
+        //
+        private FrameworkInputManager _inputs;
+        bool _isPunchStarted;
+        //
+
         private void OnEnable()
         {
             InteractableZone.onZoneInteractionComplete += InteractableZone_onZoneInteractionComplete;
+            
+            _inputs = GameObject.FindObjectOfType<FrameworkInputManager>();            
+        }
+        
+        public void SetPunchCondition(bool boolValue)
+        {
+            _isPunchStarted = boolValue;
         }
 
-        private void InteractableZone_onZoneInteractionComplete(InteractableZone zone)
+        public void SuperPunch()
+        {            
+            Debug.Log("Punching");
+            BreakPart();            
+        }
+
+        public void BreakOutMethodOne()
         {
-            
             if (_isReadyToBreak == false && _brakeOff.Count >0)
             {
                 _wholeCrate.SetActive(false);
                 _brokenCrate.SetActive(true);
                 _isReadyToBreak = true;
             }
+        }
 
+        public void BreakOutMethodTwo(InteractableZone zone)
+        {
             if (_isReadyToBreak && zone.GetZoneID() == 6) //Crate zone            
             {
                 if (_brakeOff.Count > 0)
@@ -46,17 +66,23 @@ namespace Game.Scripts.LiveObjects
                 }
             }
         }
+        private void InteractableZone_onZoneInteractionComplete(InteractableZone zone)
+        {            
+
+        }
 
         private void Start()
         {
-            _brakeOff.AddRange(_pieces);
-            
+            //
+            _inputs = GameObject.FindObjectOfType<FrameworkInputManager>();            
+            //
+            _brakeOff.AddRange(_pieces);            
         }
-
-
 
         public void BreakPart()
         {
+            Debug.Log("Crate being destroyed");
+
             int rng = Random.Range(0, _brakeOff.Count);
             _brakeOff[rng].constraints = RigidbodyConstraints.None;
             _brakeOff[rng].AddForce(new Vector3(1f, 1f, 1f), ForceMode.Force);
@@ -78,6 +104,8 @@ namespace Game.Scripts.LiveObjects
         private void OnDisable()
         {
             InteractableZone.onZoneInteractionComplete -= InteractableZone_onZoneInteractionComplete;
+            //
+            //_inputs.EnablePlayerActionMap();
         }
     }
 }

@@ -30,11 +30,10 @@ namespace Game.Scripts.LiveObjects
         public static event Action onExitFlightmode;
 
         //
-        //
+        private FrameworkInputManager _inputs;
         private float _droneMovementValue;
         private float _droneRotationValue;
         private float _droneLiftValue;
-        //
         //
 
         private void OnEnable()
@@ -42,10 +41,18 @@ namespace Game.Scripts.LiveObjects
             InteractableZone.onZoneInteractionComplete += EnterFlightMode;
         }
 
+        private void Start()
+        {
+            _inputs = GameObject.FindObjectOfType<FrameworkInputManager>();            
+        }
+
         private void EnterFlightMode(InteractableZone zone)
         {
             if (_inFlightMode != true && zone.GetZoneID() == 4) // drone Scene
             {
+                //
+                _inputs.EnableDroneActionMap();
+                //
                 _propAnim.SetTrigger("StartProps");
                 _droneCam.Priority = 11;
                 _inFlightMode = true;
@@ -56,7 +63,9 @@ namespace Game.Scripts.LiveObjects
         }
 
         private void ExitFlightMode()
-        {            
+        {     
+            //
+            _inputs.EnablePlayerActionMap();
             _droneCam.Priority = 9;
             _inFlightMode = false;
             UIManager.Instance.DroneView(false);            
@@ -85,7 +94,6 @@ namespace Game.Scripts.LiveObjects
                 CalculateMovementFixedUpdate();
         }
 
-        //
         public void MoveDrone(float droneMover)
         {
             _droneMovementValue = droneMover;
@@ -100,9 +108,7 @@ namespace Game.Scripts.LiveObjects
         {
             _droneLiftValue= droneLiftValue;
         }
-        //
-
-        //
+ 
         private void CalculateMovementUpdate()
         {
             /*
@@ -182,8 +188,7 @@ namespace Game.Scripts.LiveObjects
                 transform.rotation = Quaternion.Euler(-30, transform.localRotation.eulerAngles.y, 0);
             else
                 transform.rotation = Quaternion.Euler(0, transform.localRotation.eulerAngles.y, 0);            
-        }
-        //
+        }       
 
         private void OnDisable()
         {

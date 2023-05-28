@@ -92,7 +92,6 @@ namespace Game.Scripts.LiveObjects
                 onHackEnded?.Invoke();
             }
         }
-
         
         IEnumerator HackingRoutine()
         {

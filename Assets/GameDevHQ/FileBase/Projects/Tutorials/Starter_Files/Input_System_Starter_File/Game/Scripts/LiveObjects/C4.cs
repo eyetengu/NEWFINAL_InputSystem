@@ -15,7 +15,6 @@ namespace Game.Scripts.LiveObjects
         {
             Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
 
-
             var count = Physics.OverlapSphereNonAlloc(transform.position, 1, hits);
             
             if (count > 0)

@@ -71,21 +71,17 @@ namespace Game.Scripts.Player
         public void CalculateMovement()
         {
 
-            _playerGrounded = _controller.isGrounded;
-            //
-            //
+            _playerGrounded = _controller.isGrounded;            
             //
             //float h = Input.GetAxisRaw("Horizontal");
             //float v = Input.GetAxisRaw("Vertical");
 
             //transform.Rotate(transform.up, h);
-            transform.Rotate(transform.up, _rotateValue);
+            transform.Rotate(transform.up, _rotateValue * 2);
 
             //var direction = transform.forward * v;
             var direction = transform.forward * _movementValue;
-            ///
-            ///
-
+            //
 
             var velocity = direction * _speed;
 
@@ -99,7 +95,6 @@ namespace Game.Scripts.Player
             }
             
             _controller.Move(velocity * Time.deltaTime);                      
-
         }
 
         private void InteractableZone_onZoneInteractionComplete(InteractableZone zone)
@@ -149,7 +144,6 @@ namespace Game.Scripts.Player
             Drone.OnEnterFlightMode -= ReleasePlayerControl;
             Drone.onExitFlightmode -= ReturnPlayerControl;
         }
-
     }
 }
 
